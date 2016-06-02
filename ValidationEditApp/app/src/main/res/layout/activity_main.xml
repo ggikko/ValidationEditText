@@ -3,30 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dip" >
+    android:padding="10dip">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello_world" />
-
-    <ggikko.me.validationeditapp.widget.ValidationEditText
-        android:id="@+id/main_email"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input email!"
-        android:imeOptions="actionDone"
-        android:inputType="textEmailAddress"
-        android:singleLine="true" />
+        android:layout_marginBottom="20dp">
 
-    <ggikko.me.validationeditapp.widget.ValidationEditText
-        android:id="@+id/main_password"
+        <ggikko.me.validationeditapp.widget.ValidationEditText
+            android:id="@+id/main_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="input password!"
-        android:imeOptions="actionDone"
-        android:inputType="textEmailAddress"
-        android:singleLine="true" />
+        android:layout_marginBottom="20dp">
+
+        <ggikko.me.validationeditapp.widget.ValidationEditText
+            android:id="@+id/main_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_ok"

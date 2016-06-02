@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity  {
 
     @OnClick(R.id.btn_ok)
     void callOkClick(View view){
-        if (main_email.hasValidInput()) Toast.makeText(this, "성공", Toast.LENGTH_SHORT).show();
-        if (main_password.hasValidInput()) Toast.makeText(this, "성공", Toast.LENGTH_SHORT).show();
+        if (main_email.hasValidInput()) Toast.makeText(this, "이메일 성공", Toast.LENGTH_SHORT).show();
+        if (main_password.hasValidInput()) Toast.makeText(this, "패스워드 성공", Toast.LENGTH_SHORT).show();
     }
 
     @Override
