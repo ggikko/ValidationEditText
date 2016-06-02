@@ -11,40 +11,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import ggikko.me.validationeditapp.util.Validator;
+import lombok.Setter;
 
 /**
  * Created by ggikko on 16. 6. 2..
  */
 public class ValidationEditText  extends EditText {
 
+    @Setter
     private Validator validator;
 
-    public ValidationEditText(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init();
-    }
-
-    public ValidationEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public ValidationEditText(Context context) {
-        super(context);
-        init();
-    }
-
-    public void setValidator(Validator validator) {
-        this.validator = validator;
-    }
+    //constructor
+    public ValidationEditText(Context context, AttributeSet attrs, int defStyle) { super(context, attrs, defStyle); init();}
+    public ValidationEditText(Context context, AttributeSet attrs) { super(context, attrs); init();}
+    public ValidationEditText(Context context) { super(context); init(); }
 
     public boolean hasValidInput() {
         if (validator == null) throw new InstantiationError("validator 가 필요합니다.");
-
         boolean valid = validator.validate(getText().toString());
-
         if (!valid) notifyUser();
-
         return valid;
     }
 
@@ -56,15 +41,9 @@ public class ValidationEditText  extends EditText {
     }
 
     private void init() {
-        setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (EditorInfo.IME_ACTION_DONE == actionId) {
-                    hasValidInput();
-                }
+        setOnEditorActionListener((textview, actionId, keyEvent) -> {
+                if (EditorInfo.IME_ACTION_DONE == actionId) hasValidInput();
                 return false;
-            }
         });
     }
-
 }

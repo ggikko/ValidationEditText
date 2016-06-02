@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity  {
 
     @OnClick(R.id.btn_ok)
     void callOkClick(View view){
-        if (main_email.hasValidInput()) Toast.makeText(this, "이메일 성공", Toast.LENGTH_SHORT).show();
-        if (main_password.hasValidInput()) Toast.makeText(this, "패스워드 성공", Toast.LENGTH_SHORT).show();
+        if (main_email.hasValidInput()) showShortToast("이메일 성공");
+        if (main_password.hasValidInput()) showShortToast("패스워드 성공");
     }
 
     @Override
@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity  {
 
     private void setValidator(ValidationEditText validationEditText, Validator validator){
         validationEditText.setValidator(validator);
+    }
+
+    private void showShortToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
